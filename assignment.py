@@ -5,12 +5,8 @@
 import json
 import csv
 
-#open('stations.csv')
-#open('precipitation.json')
-
 seattle_precipitation = [0]*12 #create an empty list with 12 0s for the 12 months
 seattle_code = "GHCND:US1WAKG0038"
-#rint(station_code)
 
 '''
 with open('stations.csv', encoding='utf-8-sig') as file:
@@ -40,10 +36,11 @@ with open('seattle.json', 'w') as file:
 #Part 2: Calculate the sum of the precipitation over the whole year
 #Calculate the relative precipitation per month (percentage compared to the precipitation over the whole year
 year_precipitation = sum(seattle_precipitation[0:])
-print(year_precipitation)
 
 relative_precipitation = [0]*12
+for i in range(12):
+    relative_precipitation[i] = (seattle_precipitation[i]/year_precipitation)*100
+    
+#relative_precipitation_jan = (seattle_precipitation[0]/year_precipitation)*100
 print(relative_precipitation)
-relative_precipitation_jan = (seattle_precipitation[0]/year_precipitation)*100
-print(relative_precipitation_jan)
 #relative_precipitation[month-1] = seattle_precipitation/year_precipitation
